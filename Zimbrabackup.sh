@@ -23,3 +23,5 @@ postconf mynetworks > postconf.txt
 echo -n "Please Enter Destination Server IP (New Server) : "
 rsync -avp -e /tmp/zmigrate  $USERID@$NewServerIP:/tmp/
 echo -ne '##########################(100%)\r'
+echo -ne 'Backup Completed'
+
