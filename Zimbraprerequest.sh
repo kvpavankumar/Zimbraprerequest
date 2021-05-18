@@ -8,7 +8,7 @@ echo -e "Install dependencies"
 sleep 3
 apt-get update -y
 apt-get upgrade -y
-apt-get install -y bind9 bind9utils netcat-openbsd sudo libidn11 libpcre3 libgmp10 libexpat1 libstdc++6 libperl5.26 libaio1 resolvconf unzip pax sysstat sqlite3 net-tools
+apt-get install -y netcat-openbsd sudo libidn11 libpcre3 libgmp10 libexpat1 libstdc++6 libperl5.26 libaio1 resolvconf unzip pax sysstat sqlite3 net-tools
 
 
 echo -e "Disable service postfix and sendmail"
