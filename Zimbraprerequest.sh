@@ -39,6 +39,6 @@ echo "nameserver 8.8.8.8" >> /etc/resolvconf/resolv.conf.d/head
  
  cd zcs-8.8.15_GA_3869.UBUNTU18_64.20190918004220
  
- 
+ ./install.sh
 
 
