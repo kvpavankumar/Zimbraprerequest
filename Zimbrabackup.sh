@@ -1,4 +1,4 @@
-echo -n "Please Enter Destination Server IP (New Server) : "
+echo -n "Backup started: "
 read NewServerIP
 folder=/tmp/zmigrate/
 mkdir $folder
@@ -11,4 +11,5 @@ for i in `cat emails.txt`; do zmprov ga $i  | grep -i Name: > userdata/$i.txt ; 
 zmprov gaaa > admins.txt
 postconf mynetworks > postconf.txt
 
+echo -n "Please Enter Destination Server IP (New Server) : "
 rsync -avp -e /tmp/zmigrate  root@$NewServerIP:/tmp/
