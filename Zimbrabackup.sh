@@ -1,3 +1,11 @@
+
+userid=$(whoami) 
+if [ "userid" != "zimbra" ]; then
+  echo "Run as zimbra!"
+  exit 1
+fi
+
+
 echo -e "Backup started: "
 echo -e "Please enter New Server IP"
 read NewServerIP
