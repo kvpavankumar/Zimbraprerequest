@@ -26,8 +26,8 @@ zmprov -l gaa | grep -v galsync | grep -v spam. | grep -v ham. | grep -v virus-q
 zmprov gad > domains.txt
 echo -ne '#############             (30%)\r'
 j=1
-K=$(wc -l emails.txt | awk '{print $1}' )
-for i in `cat emails.txt`; do echo -ne "Account $j/Total Account $K"; zmprov  -l ga $i userPassword | grep userPassword: | awk '{ print $2}' > userpass/$i.shadow;  j=$((j+1)) ;done
+Total Account $(wc -l emails.txt | awk '{print $1}' )
+for i in `cat emails.txt`; do echo -ne "Account $j"; zmprov  -l ga $i userPassword | grep userPassword: | awk '{ print $2}' > userpass/$i.shadow;  j=$((j+1)) ;done
 for i in `cat emails.txt`; do zmprov ga $i  | grep -i Name: > userdata/$i.txt ; done
 zmprov gaaa > admins.txt
 echo -ne '#####################     (90%)\r'
