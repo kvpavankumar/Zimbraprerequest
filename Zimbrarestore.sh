@@ -7,16 +7,16 @@ if [ "$userid" != "zimbra" ]; then
   exit 1
 fi
 echo -e "Restoration process Started "
-[ -e ! "/tmp/zmigrate/domains.txt" ] && echo "File Not exists" && exit 1
+[ -e ! "/tmp/zmigrate/domains.txt" ] && {echo "File Not exists" ; exit 1}
 for i in `cat /tmp/zmigrate/domains.txt `; do  zmprov cd $i zimbraAuthMech zimbra ;echo $i ;done
 
 USERPASS="/tmp/zmigrate/userpass"
 USERDDATA="/tmp/zmigrate/userdata"
 USERS="/tmp/zmigrate/emails.txt"
 
-[ -e ! "$USERPASS" ] && echo "File Not exists" && exit 1
-[ -e ! "$USERDDATA" ] && echo "File Not exists" && exit 1
-[ -e ! "$USERS" ] && echo "File Not exists" && exit 1
+[ -e ! "$USERPASS" ]  && {echo "File Not exists" ; exit 1}
+[ -e ! "$USERDDATA" ] && {echo "File Not exists" ; exit 1}
+[ -e ! "$USERS" ] && {echo "File Not exists" ; exit 1}
 
 
 for i in `cat $USERS`
