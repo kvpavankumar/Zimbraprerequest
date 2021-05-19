@@ -1,7 +1,7 @@
 echo -e "Backup started: "
 echo -e "Please enter New Server IP"
 read NewServerIP
-echo -e "Please enter Destination server USER ID Ex: root"
+echo -e "Please enter enter New Server USER ID Ex: root"
 read $USERID
 
 echo -e "creating Backup Folder"
