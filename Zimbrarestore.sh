@@ -1,3 +1,9 @@
+userid=$(whoami) 
+if [ "userid" != "zimbra" ]; then
+  echo "Run as zimbra!"
+  exit 1
+fi
+
 for i in `cat /tmp/zmigrate/domains.txt `; do  zmprov cd $i zimbraAuthMech zimbra ;echo $i ;done
 
 USERPASS="/tmp/zmigrate/userpass"
