@@ -23,7 +23,7 @@ systemctl disable postfix
 echo -e "Making Host Entries"
 cp /etc/hosts /etc/hosts.backup
 echo "$IPADDRESS   $DOMAIN       mail" >> /etc/hosts
-echo "127.0.0.1       localhost" > /etc/hosts
+echo "127.0.0.1       localhost" >> /etc/hosts
 echo -e "Defining Hostname Name"
 hostnamectl set-hostname $DOMAIN
 echo -e "Configuring Dns Entries"
