@@ -6,7 +6,7 @@ if [ "x$ID" != "x0" ]; then
   exit 1
 fi
 
-echo -n "Please Enter your Domain name. : "
+echo -n "Please Enter your Domain or hostname name. : "
 read DOMAIN
 IPADDRESS=$(ifconfig | grep 'inet' |  awk '{print $2}' | grep -v '127.0.0.1')
 echo -e "Install dependencies"
