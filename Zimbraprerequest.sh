@@ -1,4 +1,10 @@
 #!/bin/bash
+ID=`id -u`
+
+if [ "x$ID" != "x0" ]; then
+  echo "Run as root!"
+  exit 1
+fi
 
 echo -n "Please Enter your Domain name. : "
 read DOMAIN
