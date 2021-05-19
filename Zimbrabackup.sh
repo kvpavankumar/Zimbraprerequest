@@ -13,7 +13,7 @@ echo -e "Backup started: "
 echo -e "Please enter New Server IP"
 read NewServerIP
 echo -e "Please enter enter New Server USER ID Ex: root"
-read $USERID
+read USERID
 
 echo -e "creating Backup Folder"
 folder=/tmp/zmigrate/
@@ -35,7 +35,7 @@ echo -ne '#####################     (90%)\r'
 postconf mynetworks > postconf.txt
 
 echo -n "Please Enter Destination Server IP (New Server) : "
-rsync -avp -e /tmp/zmigrate  $USERID@$NewServerIP:/tmp/
+rsync -avz /tmp/zmigrate  $USERID@$NewServerIP:/tmp/
 echo -ne '##########################(100%)\r'
 echo -ne 'Backup Completed'
 
