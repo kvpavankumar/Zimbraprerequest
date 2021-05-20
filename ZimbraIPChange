@@ -7,7 +7,7 @@ echo -e "Defining Hostname Name"
 hostnamectl set-hostname $DOMAIN
 echo -e "Configuring Dns Entries"
 cp /etc/resolvconf/resolv.conf.d/head /etc/resolvconf/resolv.conf.d/head.backup
-echo "search $DOMAIN" > /etc/resolvconf/resolv.conf.d/head
+echo "search $hostname" > /etc/resolvconf/resolv.conf.d/head
 echo "nameserver $IPADDRESS" >> /etc/resolvconf/resolv.conf.d/head
 echo "nameserver 8.8.8.8" >> /etc/resolvconf/resolv.conf.d/head
-echo -e "Downloading Zimbra Source File"
+
