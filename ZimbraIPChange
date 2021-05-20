@@ -1,10 +1,8 @@
 #!/bin/bash
 IPADDRESS=$(ifconfig | grep 'inet' |  awk '{print $2}' | grep -v '127.0.0.1')
 cp /etc/hosts /etc/hosts.backup
-echo "$IPADDRESS   $hostname    mail" >> /etc/hosts
+echo "$IPADDRESS   $hostname    mail" > /etc/hosts
 echo "127.0.0.1       localhost" >> /etc/hosts
-echo -e "Defining Hostname Name"
-hostnamectl set-hostname $DOMAIN
 echo -e "Configuring Dns Entries"
 cp /etc/resolvconf/resolv.conf.d/head /etc/resolvconf/resolv.conf.d/head.backup
 echo "search $hostname" > /etc/resolvconf/resolv.conf.d/head
