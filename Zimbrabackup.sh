@@ -1,7 +1,7 @@
 
 userid=$(whoami) 
 
-if [ "$userid" != "zimbra" ]; then
+if [ $userid != "zimbra" ]; then
   echo "Run as zimbra user!"
   echo "Enter below command to Enter into Zimbra user"
   echo "su - zimbra"
