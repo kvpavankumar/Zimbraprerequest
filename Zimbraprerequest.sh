@@ -8,12 +8,15 @@ fi
 
 echo -n "Please Enter your Domain or hostname name. : "
 read DOMAIN
-IPADDRESS=$(ifconfig | grep 'inet' |  awk '{print $2}' | grep -v '127.0.0.1')
 echo -e "Install dependencies"
 sleep 3
+
 apt-get update -y
 apt-get upgrade -y
 apt-get install -y netcat-openbsd sudo libidn11 libpcre3 libgmp10 libexpat1 libstdc++6 libperl5.26 libaio1 resolvconf unzip pax sysstat sqlite3 net-tools
+
+IPADDRESS=$(ifconfig | grep 'inet' |  awk '{print $2}' | grep -v '127.0.0.1')
+
 echo -e "Disable service postfix and sendmail"
 sleep 3
 systemctl stop sendmail
