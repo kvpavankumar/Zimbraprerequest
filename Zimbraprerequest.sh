@@ -6,6 +6,12 @@ if [ "x$ID" != "x0" ]; then
   exit 1
 fi
 
+echo net.ipv6.conf.all.disable_ipv6=1 >>  /etc/sysctl.conf
+echo net.ipv6.conf.default.disable_ipv6=1 >>  /etc/sysctl.conf
+echo net.ipv6.conf.lo.disable_ipv6=1 >>  /etc/sysctl.conf
+sudo sysctl -p
+
+
 echo -n "Please Enter your Domain or hostname name. : "
 read DOMAIN
 echo -e "Install dependencies"
@@ -13,7 +19,7 @@ sleep 3
 
 apt-get update -y
 apt-get upgrade -y
-apt-get install -y netcat-openbsd sudo libidn11 libpcre3 libgmp10 libexpat1 libstdc++6 libperl5.26 libaio1 resolvconf unzip pax sysstat sqlite3 net-tools
+apt-get install -y netcat-openbsd sudo libidn11 libpcre3 libgmp10 libexpat1 libstdc++6 libperl5.26 libaio1 resolvconf unzip pax sysstat sqlite3 net-tools mysql-client
 
 IPADDRESS=$(ifconfig | grep 'inet' |  awk '{print $2}' | grep -v '127.0.0.1')
 
