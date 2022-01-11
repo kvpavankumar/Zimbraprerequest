@@ -41,7 +41,8 @@ echo "search $DOMAIN" > /etc/resolvconf/resolv.conf.d/head
 echo "nameserver $IPADDRESS" >> /etc/resolvconf/resolv.conf.d/head
 echo "nameserver 8.8.8.8" >> /etc/resolvconf/resolv.conf.d/head
 echo -e "Downloading Zimbra Source File"
-wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.UBUNTU18_64.20190918004220.tgz
+#wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.UBUNTU18_64.20190918004220.tgz
+wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_4179.UBUNTU20_64.20211118033954.tgz
 tar xvf zcs-8.8.15_GA_3869.UBUNTU18_64.20190918004220.tgz
 cd zcs-8.8.15_GA_3869.UBUNTU18_64.20190918004220
 
