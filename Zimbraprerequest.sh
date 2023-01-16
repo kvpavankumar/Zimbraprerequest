@@ -20,6 +20,7 @@ sleep 3
 apt-get update -y
 apt-get upgrade -y
 apt-get install -y netcat-openbsd sudo libidn11 libpcre3 libgmp10 libexpat1 libstdc++6 libperl5.26 libaio1 resolvconf unzip pax sysstat sqlite3 net-tools mysql-client postgresql-client mysql-client
+sudo apt install net-tools
 
 
 IPADDRESS=$(ifconfig | grep 'inet' |  awk '{print $2}' | grep -v '127.0.0.1')
@@ -43,7 +44,7 @@ echo "nameserver $IPADDRESS" >> /etc/resolvconf/resolv.conf.d/head
 echo "nameserver 8.8.8.8" >> /etc/resolvconf/resolv.conf.d/head
 echo -e "Downloading Zimbra Source File"
 wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_4179.UBUNTU20_64.20211118033954.tgz
-
+       
 tar xvf zcs-8.8.15_GA_4179.UBUNTU20_64.20211118033954.tgz
 cd zcs-8.8.15_GA_4179.UBUNTU20_64.20211118033954
 
