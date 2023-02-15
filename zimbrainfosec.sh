@@ -1,4 +1,3 @@
-zmprov ms mta $hostname  zimbraMtaHeaderChecks 'pcre:/opt/zimbra/conf/postfix_header_checks regexp:/opt/zimbra/conf/custom_header_checks'
 zmprov ms $hostname zimbraMtaHeaderChecks 'pcre:/opt/zimbra/conf/postfix_header_checks regexp:/opt/zimbra/conf/custom_header_checks'
 zmprov mcf zimbraMtaBlockedExtensionWarnRecipient FALSE
 zmprov mcf zimbraMtaSmtpdTlsCiphers high
