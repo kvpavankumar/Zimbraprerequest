@@ -22,6 +22,7 @@ apt-get upgrade -y
 apt-get install -y netcat-openbsd sudo libidn11 libpcre3 libgmp10 libexpat1 libstdc++6 libperl5.26 libaio1 resolvconf unzip pax sysstat sqlite3 net-tools mysql-client postgresql-client mysql-client
 sudo apt install net-tools
 
+sudo apt install  -y postgresql-client mysql-client
 
 IPADDRESS=$(ifconfig | grep 'inet' |  awk '{print $2}' | grep -v '127.0.0.1')
 
