@@ -26,6 +26,7 @@ zmprov mcf +zimbraSSLExcludeCipherSuites SSL_RSA_EXPORT_WITH_DES40_CBC_SHA
 zmprov mcf +zimbraSSLExcludeCipherSuites SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA
 zmprov mcf +zimbraSSLExcludeCipherSuites SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA
 zmprov mcf +zimbraSSLExcludeCipherSuites '.*_(3DES|RC4)_.*'
+zmprov modifyServer $(hostname) zimbraMtaTlsAuthOnly FALSE
 zmprov mcf +zimbraSSLExcludeCipherSuites TLS_RSA_WITH_AES_128_CBC_SHA
 zmprov mcf zimbraMtaSmtpdTlsExcludeCiphers aNULL,eNULL,LOW,3DES,MD5,EXP,PSK,DSS,RC4,SEED,ECDSA,DES,EXPORT
 zmprov mcf zimbraMtaSmtpdTlsCiphers medium
@@ -33,6 +34,3 @@ zmprov mcf zimbraMtaSmtpdTlsMandatoryCiphers  medium
 zmprov mcf zimbraMtaSmtpdTlsProtocols '>=TLSv1.2'
 zmcontrol restart
 
-
-zmmtactl restart
-zmcontrol start
