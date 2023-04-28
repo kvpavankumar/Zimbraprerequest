@@ -18,6 +18,7 @@ su - zimbra -c 'zmprov mcf +zimbraSSLExcludeCipherSuites         TLS_DH_anon_WIT
 su - zimbra -c 'zmprov mcf +zimbraSSLExcludeCipherSuites         TLS_DH_anon_WITH_CAMELLIA_128_CBC_SHA256'
 su - zimbra -c 'zmprov mcf +zimbraSSLExcludeCipherSuites         TLS_DH_anon_WITH_CAMELLIA_256_CBC_SHA'
 su - zimbra -c 'zmprov mcf +zimbraSSLExcludeCipherSuites         TLS_DH_anon_WITH_CAMELLIA_256_CBC_SHA256'
+su - zimbra -c 'zmcontrol restart'
 su - zimbra -c 'zmprov mcf +zimbraSSLExcludeCipherSuites SSL_RSA_WITH_DES_CBC_SHA'
 su - zimbra -c 'zmprov mcf +zimbraSSLExcludeCipherSuites SSL_DHE_RSA_WITH_DES_CBC_SHA'
 su - zimbra -c 'zmprov mcf +zimbraSSLExcludeCipherSuites SSL_DHE_DSS_WITH_DES_CBC_SHA'
