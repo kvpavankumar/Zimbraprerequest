@@ -27,7 +27,7 @@ su - zimbra -c 'zmprov mcf +zimbraSSLExcludeCipherSuites SSL_RSA_EXPORT_WITH_RC4
 su - zimbra -c 'zmprov mcf +zimbraSSLExcludeCipherSuites SSL_RSA_EXPORT_WITH_DES40_CBC_SHA'
 su - zimbra -c 'zmprov mcf +zimbraSSLExcludeCipherSuites SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA'
 su - zimbra -c 'zmprov mcf +zimbraSSLExcludeCipherSuites SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA'
-su - zimbra -c "zmprov mcf +zimbraSSLExcludeCipherSuites ".*_(3DES|RC4)_.*"'
+su - zimbra -c 'zmprov mcf +zimbraSSLExcludeCipherSuites ".*_(3DES|RC4)_.*"'
 su - zimbra -c 'zmprov modifyServer $(hostname) zimbraMtaTlsAuthOnly FALSE'
 su - zimbra -c 'zmprov mcf +zimbraSSLExcludeCipherSuites TLS_RSA_WITH_AES_128_CBC_SHA'
 su - zimbra -c 'zmprov mcf zimbraMtaSmtpdTlsExcludeCiphers aNULL,eNULL,LOW,3DES,MD5,EXP,PSK,DSS,RC4,SEED,ECDSA,DES,EXPORT'
