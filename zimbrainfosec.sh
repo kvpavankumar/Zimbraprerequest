@@ -1,3 +1,4 @@
+echo '/^subject:/ WARN' > /opt/zimbra/conf/custom_header_checks
 su - zimbra -c 'zmprov ms $(hostname)  zimbraMtaHeaderChecks 'pcre:/opt/zimbra/conf/postfix_header_checks regexp:/opt/zimbra/conf/custom_header_checks''
 su - zimbra -c 'zmprov mcf zimbraMtaBlockedExtensionWarnRecipient FALSE'
 su - zimbra -c 'zmprov mcf zimbraMtaSmtpdTlsCiphers high'
