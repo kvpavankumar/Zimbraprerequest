@@ -44,13 +44,13 @@ echo "search $DOMAIN" > /etc/resolvconf/resolv.conf.d/head
 echo "nameserver $IPADDRESS" >> /etc/resolvconf/resolv.conf.d/head
 echo "nameserver 8.8.8.8" >> /etc/resolvconf/resolv.conf.d/head
 echo -e "Downloading Zimbra Source File"
-wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_4179.UBUNTU20_64.20211118033954.tgz
+wget https://download.zextras.com/zcs-9.0.0_OSE_UBUNTU20_latest-zextras.tgz
        
-tar xvf zcs-8.8.15_GA_4179.UBUNTU20_64.20211118033954.tgz
-cd zcs-8.8.15_GA_4179.UBUNTU20_64.20211118033954
+tar xvf zcs-9.0.0_OSE_UBUNTU20_latest-zextras.tgz
+cd zcs-9.0.0_OSE_UBUNTU20_latest-zextras.tgz
 
 echo -e "Installing Zimbra "
 sleep 5
-./install.sh
+./install.sh -all
 
 
