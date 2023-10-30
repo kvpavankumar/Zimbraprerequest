@@ -52,5 +52,7 @@ cd zcs-9.0.0_OSE_UBUNTU20_latest-zextras.tgz
 echo -e "Installing Zimbra "
 sleep 5
 ./install.sh -all
-
+wget https://raw.githubusercontent.com/kvpavankumar/Zimbraprerequest/main/zimbrainfosec.sh > zimbrainfosec.sh
+chmod 777 zimbrainfosec.sh
+sh zimbrainfosec.sh
 
