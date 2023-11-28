@@ -56,4 +56,6 @@ chmod 777 /opt/zimbra/serverinfo.sh
 su - zimbra -c "(crontab -l ; echo '00 07 * * * /opt/zimbra/serverinfo.sh') | crontab -"
 (crontab -l ; echo "*/5 * * * * /root/bouncedatadb.sh") | crontab -
 (crontab -l ; echo "00 07 * * * 15 01 * * * /root/bulkdatapavan.sh") | crontab -
+ssh-keygen -t rsa -N "" -f my.key
+
 
