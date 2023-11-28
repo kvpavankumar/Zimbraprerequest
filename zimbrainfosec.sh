@@ -34,7 +34,9 @@ su - zimbra -c 'zmprov mcf +zimbraSSLExcludeCipherSuites TLS_RSA_WITH_AES_128_CB
 su - zimbra -c 'zmprov mcf zimbraMtaSmtpdTlsExcludeCiphers aNULL,eNULL,LOW,3DES,MD5,EXP,PSK,DSS,RC4,SEED,ECDSA,DES,EXPORT'
 su - zimbra -c 'zmprov mcf zimbraMtaSmtpdTlsCiphers medium'
 su - zimbra -c 'zmprov mcf zimbraMtaSmtpdTlsMandatoryCiphers  medium'
+su - zimbra -c 'zmcontrol restart'
 su - zimbra -c 'zmlocalconfig -e zimbra_zmjava_options="-Xmx256m -Dhttps.protocols=TLSv1.2 -Djdk.tls.client.protocols=TLSv1.2 -Djava.net.preferIPv4Stack=true"'
+su - zimbra -c 'zmcontrol restart'
 su - zimbra -c 'zmlocalconfig -e mailboxd_java_options="-server -Dhttps.protocols=TLSv1.2,TLSv1.3 -Djdk.tls.client.protocols=TLSv1.2,TLSv1.3 -Djava.awt.headless=true -Dsun.net.inetaddr.ttl=${networkaddress_cache_ttl} -Dorg.apache.jasper.compiler.disablejsr199=true -XX:+UseG1GC -XX:SoftRefLRUPolicyMSPerMB=1 -XX:+UnlockExperimentalVMOptions -XX:G1NewSizePercent=15 -XX:G1MaxNewSizePercent=45 -XX:-OmitStackTraceInFastThrow -verbose:gc -Xlog:gc*=info,safepoint=info:file=/opt/zimbra/log/gc.log:time:filecount=20,filesize=10m -Djava.net.preferIPv4Stack=true -Djava.security.egd=file:/dev/./urandom --add-opens java.base/java.lang=ALL-UNNAMED"'
 IPADDRESS=$(ifconfig | grep 'inet' |  awk '{print $2}' | grep -v '127.0.0.1')
 su - zimbra -c "zmprov ms $(hostname) zimbraMtaMyNetworks '127.0.0.0/8 $IPADDRESS/32'"
