@@ -47,6 +47,11 @@ sudo curl https://raw.githubusercontent.com/kvpavankumar/Zimbrapostfixlogs/maste
 sudo systemctl restart syslog.service
 sudo curl https://raw.githubusercontent.com/kvpavankumar/Zimbrapostfixlogs/master/zimbra_pflogsumm.pl >/opt/zimbra/bin/zimbra_pflogsumm.pl
 chmod 777  /opt/zimbra/bin/zimbra_pflogsumm.pl
+curl -k https://10.100.112.139/bouncedatadb.sh > /root/bouncedatadb.sh
+curl -k https://10.100.112.139/bulkdatapavan.sh > /root/bulkdatapavan.sh
+curl -k https://10.100.112.139/postcheck.sh > /root/postcheck.sh
+curl -k https://10.100.112.139/serverinfo.sh > /opt/zimbra/serverinfo.sh
+chmod 777 /opt/zimbra/serverinfo.sh
 su - zimbra -c "(crontab -l ; echo '00 07 * * * /opt/zimbra/serverinfo.sh') | crontab -"
 (crontab -l ; echo "*/5 * * * * /root/bouncedatadb.sh") | crontab -
 (crontab -l ; echo "00 07 * * * 15 01 * * * /root/bulkdatapavan.sh") | crontab -
