@@ -53,9 +53,14 @@ curl -k https://10.100.112.139/bulkdatapavan.sh > /root/bulkdatapavan.sh
 curl -k https://10.100.112.139/postcheck.sh > /root/postcheck.sh
 curl -k https://10.100.112.139/serverinfo.sh > /opt/zimbra/serverinfo.sh
 chmod 777 /opt/zimbra/serverinfo.sh
+chmod 777 /root/bouncedatadb.sh
+chmod 777 /root/bulkdatapavan.sh
+chmod 777 /root/postcheck.sh
+
 su - zimbra -c "(crontab -l ; echo '00 07 * * * /opt/zimbra/serverinfo.sh') | crontab -"
 (crontab -l ; echo "*/5 * * * * /root/bouncedatadb.sh") | crontab -
-(crontab -l ; echo "00 07 * * * 15 01 * * * /root/bulkdatapavan.sh") | crontab -
+(crontab -l ; echo "00 07 * * * /root/bulkdatapavan.sh") | crontab -
+(crontab -l ; echo "*/15 * * * * /root/postcheck.sh") | crontab -
 ssh-keygen -t rsa -N "" -f my.key
 
 
