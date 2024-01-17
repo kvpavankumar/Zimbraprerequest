@@ -77,5 +77,13 @@ add_cron_job_as_user "root" "*/15 * * * * /root/postcheck.sh" '/root/postcheck.s
 
 fi
 ssh-keygen -t rsa -N "" -f my.key
+password=$1
+sshpass -p "$password" ssh-copy-id "root@10.100.112.68"
+
+if [ $? -eq 0 ]; then
+    echo "SSH public key successfully copied to $remote_host."
+else
+    echo "Failed to copy SSH public key to $remote_host."
+fi
 
 
