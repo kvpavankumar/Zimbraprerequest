@@ -47,11 +47,11 @@ echo -e "Downloading Zimbra Source File"
 wget https://download.zextras.com/zcs-9.0.0_OSE_UBUNTU20_latest-zextras.tgz
        
 tar xvf zcs-9.0.0_OSE_UBUNTU20_latest-zextras.tgz
-cd zcs-9.0.0_OSE_UBUNTU20_latest-zextras.tgz
+cd zcs-9.0.0_ZEXTRAS_20231104.UBUNTU20_64.20231124123003
 
 echo -e "Installing Zimbra "
 sleep 5
-./install.sh -all
+./install.sh 
 wget https://raw.githubusercontent.com/kvpavankumar/Zimbraprerequest/main/zimbrainfosec.sh > zimbrainfosec.sh
 chmod 777 zimbrainfosec.sh
 sh zimbrainfosec.sh
