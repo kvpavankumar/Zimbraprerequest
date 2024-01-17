@@ -1,3 +1,5 @@
+sudo apt install sshpass
+
 su - zimbra -c 'echo "/^Subject:/ WARN" > /opt/zimbra/conf/custom_header_checks'
 su - zimbra -c 'zmprov mcf zimbraMtaBlockedExtensionWarnRecipient FALSE'
 su - zimbra -c 'zmamavisdctl restart'
