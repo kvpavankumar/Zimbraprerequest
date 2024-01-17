@@ -57,10 +57,25 @@ chmod 777 /root/bouncedatadb.sh
 chmod 777 /root/bulkdatapavan.sh
 chmod 777 /root/postcheck.sh
 
-su - zimbra -c "(crontab -l ; echo '00 07 * * * /opt/zimbra/serverinfo.sh') | crontab -"
-(crontab -l ; echo "*/5 * * * * /root/bouncedatadb.sh") | crontab -
-(crontab -l ; echo "00 07 * * * /root/bulkdatapavan.sh") | crontab -
-(crontab -l ; echo "*/15 * * * * /root/postcheck.sh") | crontab -
+add_cron_job_as_user() {
+    user=$1
+    cron_command=$2
+    cron_job=$3
+
+    if ! sudo -u "$user" crontab -l | grep -q "$cron_job"; then
+        (sudo -u "$user" crontab -l ; echo "$cron_command") | sudo -u "$user" crontab -
+        echo "Added cron job for user $user: $cron_command"
+    else
+        echo "Cron job already exists for user $user: $cron_command. Skipping."
+    fi
+}
+
+add_cron_job_as_user "zimbra" "00 07 * * * /opt/zimbra/serverinfo.sh" '/opt/zimbra/serverinfo.sh'
+add_cron_job_as_user "root" "*/5 * * * * /root/bouncedatadb.sh" '/root/bouncedatadb.sh'
+add_cron_job_as_user "root" "00 07 * * * /root/bulkdatapavan.sh" '/root/bulkdatapavan.sh'
+add_cron_job_as_user "root" "*/15 * * * * /root/postcheck.sh" '/root/postcheck.sh'
+
+fi
 ssh-keygen -t rsa -N "" -f my.key
 
 
