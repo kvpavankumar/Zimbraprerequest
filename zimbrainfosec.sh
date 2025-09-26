@@ -43,6 +43,14 @@ su - zimbra -c 'zmlocalconfig -e mailboxd_java_options="-server -Dhttps.protocol
 IPADDRESS=$(ifconfig | grep 'inet' |  awk '{print $2}' | grep -v '127.0.0.1')
 su - zimbra -c "zmprov ms $(hostname) zimbraMtaMyNetworks '127.0.0.0/8 $IPADDRESS/32'"
 su - zimbra -c 'zmcontrol restart'
+postconf -e "lmtp_tls_ciphers = medium"
+postconf -e "smtp_tls_ciphers = medium"
+postconf -e "lmtp_tls_exclude_ciphers = aNULL,eNULL,LOW,3DES,MD5,EXP,PSK,DSS,RC4,SEED,ECDSA,DES,EXPORT"
+postconf -e "smtp_tls_exclude_ciphers = aNULL,eNULL,LOW,3DES,MD5,EXP,PSK,DSS,RC4,SEED,ECDSA,DES,EXPORT"
+postconf -e "lmtp_tls_protocols = \!SSLv2,\!SSLv3,TLSv1.2,TLSv1.3"
+postconf -e "smtp_tls_protocols = \!SSLv2,\!SSLv3,TLSv1.2,TLSv1.3"
+zmmtactl restart
+
 
 sudo curl https://raw.githubusercontent.com/kvpavankumar/Zimbrapostfixlogs/master/50-default.conf > /etc/rsyslog.d/50-default.conf
 sudo curl https://raw.githubusercontent.com/kvpavankumar/Zimbrapostfixlogs/master/rsyslog> /etc/logrotate.d/rsyslog 
