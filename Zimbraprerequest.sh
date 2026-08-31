@@ -21,6 +21,7 @@ apt-get update -y
 apt-get upgrade -y
 apt-get install -y netcat-openbsd sudo libidn11 libpcre3 libgmp10 libexpat1 libstdc++6 libperl5* libaio1 resolvconf unzip pax sysstat sqlite3 net-tools mysql-client postgresql-client mysql-client
 sudo apt install net-tools sshpass
+sudo apt install resolvconf -y
 
 sudo apt install  -y postgresql-client mysql-client
 
